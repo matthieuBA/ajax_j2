@@ -1,0 +1,15 @@
+
+//quand on clique sur le bouton " marquer comme non lu " on update son fontweight en bold
+var myEmailObject = document.getElementById("ID<%=@email.id%>");
+var disappear = document.getElementsByClassName("disappear")[0];
+
+// quand on clique sur le bouton marquer comme non lu, celui-ci change son contenu
+// disappear c'est le span qui contient le bouton, son premier enfant c'est le bouton
+disappear.children[0].innerHTML = "Marquer comme lu"
+
+
+myEmailObject.style.fontWeight = "bold";
+
+
+
+

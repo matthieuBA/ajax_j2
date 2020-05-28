@@ -1,0 +1,24 @@
+	// on va chercher la cellule du tableau qui contient le body et l'object de l'email ainsi que les boutons associés.
+	var currentBody = document.getElementById("<%=@email.id%>"); // current body c'est le body du mail sur lequel on a cliqué
+	//on va chercher le 1er objet  contenu dans la 1ere cellule (1ere ligne, colonne de gauche, donc objet du mail) 
+	var firstObject = document.getElementsByClassName("object")[0];
+	// On va chercher l'element qui suit, la cellule de la 1ere ligne colone de droite, qui contient une fois affichée l'objet 
+	//et le contenu du mail, qui est à priori cachée
+	var objectToRemove = firstObject.nextElementSibling;
+	// on place current body à côté de firstObject, donc en haut à droite du tableau 
+	firstObject.insertAdjacentElement("afterend", currentBody);
+	//pour que l'email précemment lu disparaisse >>> on clean le truc
+	objectToRemove.style.display = "none";
+	// on affiche l'email en cours de lecture
+	currentBody.style.display = "block";
+	// on va chercher l'element sur lequel on a cliqué
+	var myEmailObject = document.getElementById("ID<%=@email.id%>");
+	// on enleve le style pour différencier les mails lus des non lus.
+	myEmailObject.removeAttribute("style");
+	
+
+
+
+	
+
+	

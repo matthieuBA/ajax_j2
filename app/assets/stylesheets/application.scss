@@ -1,0 +1,55 @@
+@import "variables/personal_variables";
+@import "variables/bootstrap_variables";
+
+@import "bootstrap";
+@import "font-awesome";
+@import "components/*";
+
+.checked {
+	text-decoration: line-through;
+}
+
+table {
+	table-layout: auto;
+	letter-spacing: 1px;
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
+td, th {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+td {
+	text-align:center;
+}
+
+tr:nth-child(even) {
+	background-color : #eee;
+}
+
+th[scope="col"] {
+	background-color : #696969;
+	color : #fff;
+}
+
+th[scope="row"] {
+	backgroud-color : #d7d9f2;
+	}
+
+.body {
+	display: none
+}
+
+.small-col {
+	width: 20%;
+}
+
+.big-col {
+	width: 80%;
+}
+
+.gras {
+	font-weight: bold;
+}

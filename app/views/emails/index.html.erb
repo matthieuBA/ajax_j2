@@ -1,0 +1,49 @@
+
+<!-- on crée un bouton pour générer un email qu'on place dans un container  -->
+<div class="container" >
+	<div class="row mb-4">
+		<div class="col">
+		<%= link_to emails_path, method: :post, data: {remote: true  }, class: "btn btn-primary"  do %>
+          Recevoir un email
+          <%end %>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+	<!-- on crée un tableau -->
+<table id="myEmail" class="table table-bordered">
+	
+	<tr>
+	<th class="small-col" scope="col">liste d'emails</th>
+	<th class="big-col"scope="col">Email selectionné</th>
+	</tr>
+
+	<!-- on affiche chaque email dans l'ordre croissant de leur ID  -->
+  <% @emails.order(id: :asc).each do |email|  %>
+  <tr >
+  	<!-- si l'attrivut read est true on affiche l'objet d'email sans caractère gras -->
+  	<% if email.read == true %>
+  <td class="object" id="ID<%=email.id%>"> <%=link_to email_path(email.id), data: {remote: true } do %> <%=email.object%> <%end%> </td>
+  <% else %><!--  sinon on l'affiche en gras -->
+  <td class="object" id="ID<%=email.id%>" style="font-weight: bold;"> <%=link_to email_path(email.id), data: {remote: true } do %> <%=email.object%> <%end%> 
+  </td>
+  <%end%>
+<!--  on affiche le contenu de l'email et ses boutons -->
+   <td class="body" id="<%=email.id%>"><p class="email-object"style="font-size: 25px;"><%=email.object%></p><p class="email-body"><%=email.body%></p>
+	<p class="body-buttons"><%= link_to email_path(id: email.id), method: :delete, class: "btn btn-sm btn-danger",  data: {remote: true }  do %>Supprimer<%end %>
+   		<span class="disappear"> <%= link_to email_path(id: email.id), method: "put", class: "btn btn-sm btn-primary", data: {remote: true}  do %>Marquer comme non lu<%end %> </span> </p>
+
+ </td>
+  <%end%>
+  
+
+</tr>
+
+
+</table>
+</div>
+</div>
+
+</div>
+

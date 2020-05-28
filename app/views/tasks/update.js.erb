@@ -1,0 +1,13 @@
+var currentTask = document.getElementById("<%=@task.id%>");
+var currentCheckBox = currentTask.getElementsByTagName('input')[0];
+
+$(document).ready(function() {
+	if (currentCheckBox.checked) {
+		$(currentTask).removeClass('unchecked');
+		$(currentTask).addClass('checked');
+	} else {
+		$(currentTask).removeClass('checked');
+		$(currentTask).addClass('unchecked');
+	}
+
+});

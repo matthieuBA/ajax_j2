@@ -1,0 +1,15 @@
+alert("le fichier JS est exécuté!");
+
+$(document).ready(function() {
+
+$(".animat").hide().fadeIn(3000);
+
+
+});
+
+
+
+document.getElementById("<%=@category.title%>").insertAdjacentHTML("beforeend", "<%= j render 'task', task: @task %>")
+
+
+
